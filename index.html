@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Formulaire par étapes</title>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="steps">
+        <div class="steps-bloc">
+          <div class="steps-bloc-number active">1</div>
+          <div class="steps-bloc-text">
+            <p class="steps-bloc-text-number">Etape 1</p>
+            <p class="steps-bloc-text-title">Infos personnelles</p>
+          </div>
+        </div>
+        <div class="steps-bloc">
+          <div class="steps-bloc-number">2</div>
+          <div class="steps-bloc-text">
+            <p class="steps-bloc-text-number">Etape 2</p>
+            <p class="steps-bloc-text-title">Choisissez votre forfait</p>
+          </div>
+        </div>
+        <div class="steps-bloc">
+          <div class="steps-bloc-number">3</div>
+          <div class="steps-bloc-text">
+            <p class="steps-bloc-text-number">Etape 3</p>
+            <p class="steps-bloc-text-title">Ajoutez vos options</p>
+          </div>
+        </div>
+        <div class="steps-bloc">
+          <div class="steps-bloc-number">4</div>
+          <div class="steps-bloc-text">
+            <p class="steps-bloc-text-number">Etape 1</p>
+            <p class="steps-bloc-text-title">Pour terminer</p>
+          </div>
+        </div>
+        <div class="steps-bloc">
+          <div class="steps-bloc-number"></div>
+        </div>
+      </div>
+      <div class="interactive-content">
+        <div class="form">
+          <div class="form-step form-step-0 active">
+            <h2>Infos personnelles</h2>
+            <p>Merci d'indiquer votre nom, email, adresse et numéro de téléphone.</p>
+            <div class="inputs">
+              <div class="inputs-infos">
+                <label for="name">Nom</label>
+                <span class="alert alert-name">Ce champ est obligatoire</span>
+              </div>
+              <input required id="name" type="text" placeholder="ex : Pauline Desmarets" onfocusout="registerEntry(this.id)" />
+              <div class="inputs-infos">
+                <label for="email">Email</label>
+                <span class="alert alert-email">Ce champ est obligatoire</span>
+              </div>
+              <input required id="email" type="email" placeholder="ex : pauline@reference-club.fr" onfocusout="registerEntry(this.id)" />
+              <div class="inputs-infos">
+                <label for="tel">Numéro de téléphone</label>
+                <span class="alert alert-tel">Ce champ est obligatoire</span>
+              </div>
+              <input required id="tel" type="tel" placeholder="ex : 06 00 00 00 00" onfocusout="registerEntry(this.id)" />
+            </div>
+          </div>
+          <div class="form-step form-step-1">
+            <h2>Choisissez un forfait</h2>
+            <p>Vous pouvez choisir d'être facturé chaque mois ou à l'année.</p>
+            <div class="forfaits">
+              <div class="forfait" id="forfait0" onclick="registerEntry(this.id)">
+                <img src="assets/images/icon-arcade.svg" alt="" />
+                <div class="forfait-details">
+                  <span class="forfait-details-title">Arcade</span>
+                  <span class="forfait-details-price forfait-details-price-month active">9€/mois</span>
+                  <span class="forfait-details-price forfait-details-price-year">90€/an</span>
+                  <span class="forfait-details-offer">2 mois gratuits</span>
+                </div>
+              </div>
+              <div class="forfait" id="forfait1" onclick="registerEntry(this.id)">
+                <img src="assets/images/icon-advanced.svg" alt="" />
+                <div class="forfait-details">
+                  <span class="forfait-details-title">Expert</span>
+                  <span class="forfait-details-price forfait-details-price-month active">12€/mois</span>
+                  <span class="forfait-details-price forfait-details-price-year">120€/an</span>
+                  <span class="forfait-details-offer">2 mois gratuits</span>
+                </div>
+              </div>
+              <div class="forfait" id="forfait2" onclick="registerEntry(this.id)">
+                <img src="assets/images/icon-pro.svg" alt="" />
+                <div class="forfait-details">
+                  <span class="forfait-details-title">Pro</span>
+                  <span class="forfait-details-price forfait-details-price-month active">150€/mois</span>
+                  <span class="forfait-details-price forfait-details-price-year">15€/an</span>
+                  <span class="forfait-details-offer">2 mois gratuits</span>
+                </div>
+              </div>
+
+              <div class="toggle">
+                <span id="month" class="active">Mensuel</span>
+                <div id="toggle-bar" class="bar">
+                  <div class="cursor"></div>
+                </div>
+                <span id="year">Annuel</span>
+              </div>
+            </div>
+          </div>
+          <div class="form-step form-step-2">
+            <h2>Ajoutez vos options</h2>
+            <p>Les options améliorent votre expérience de jeu.</p>
+            <div id="option0" class="option active" onclick="registerEntry(this.id)">
+              <img src="assets/images/icon-checkmark.svg" alt="" />
+              <div class="option-details">
+                <span class="option-details-title">Online gaming</span>
+                <span class="option-details-text">Accédez aux jeux en ligne</span>
+              </div>
+              <span class="option-price">+1€/mois</span>
+            </div>
+            <div id="option1" class="option active" onclick="registerEntry(this.id)">
+              <img src="assets/images/icon-checkmark.svg" alt="" />
+              <div class="option-details">
+                <span class="option-details-title">Stockage maximum</span>
+                <span class="option-details-text">1TB de cloud storage</span>
+              </div>
+              <span class="option-price">+2€/mois</span>
+            </div>
+            <div id="option2" class="option" onclick="registerEntry(this.id)">
+              <img src="assets/images/icon-checkmark.svg" alt="" />
+              <div class="option-details">
+                <span class="option-details-title">Profil personnalisable</span>
+                <span class="option-details-text">Thème sur-mesure pour votre profil</span>
+              </div>
+              <span class="option-price">+2€/mois</span>
+            </div>
+          </div>
+          <div class="form-step form-step-3">
+            <h2>Pour terminer</h2>
+            <p>Vérifiez que votre commande vous convient avant de confirmer.</p>
+            <div class="cart">
+              <div class="forfait">
+                <div class="forfait-text">
+                  <span class="forfait-title">Arcade</span>
+                  <span class="forfait-frequence"></span>
+                  <span class="forfait-change">Changer</span>
+                </div>
+                <span class="forfait-price"><span class="forfait-price-number">9</span>€</span>
+              </div>
+              <div class="option">
+                <span class="option-title">Online gaming</span>
+                <span class="option-price"
+                  >+ <span class="option-price-number"></span>€/
+                  <span class="option-price-frequence">mois</span>
+                </span>
+              </div>
+              <div class="option">
+                <span class="option-title">Stockage maximum</span>
+                <span class="option-price">+<span class="option-price-number"></span>€/<span class="option-price-frequence">mois</span> </span>
+              </div>
+              <div class="option">
+                <span class="option-title">Profil personnalisable</span>
+                <span class="option-price">+<span class="option-price-number"></span>€/<span class="option-price-frequence">mois</span></span>
+              </div>
+            </div>
+            <div class="total">
+              <span class="total-text">Total <span class="total-text-frequence"></span></span>
+              <span class="total-number"></span>
+            </div>
+          </div>
+          <div class="form-step form-step-4">
+            <img src="assets/images/icon-thank-you.svg" alt="" />
+            <h3>Merci !</h3>
+            <p>Merci d'avoir validé votre inscription ! Nous espérons que vous vous amuserez en utilisant nos services. Si vous avez besoin d'aide, n'hésitez pas à nous envoyer un mail à <a href="#">support@loremipsum.com</a>.</p>
+          </div>
+        </div>
+        <div class="navigation">
+          <div class="prev active">Précédent</div>
+          <div class="next active">Suivant</div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">Design de <a href="https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ" target="_blank">Frontend Mentor</a><br />Codé par <a href="https://www.linkedin.com/in/paulinedesmarets/">Pauline Desmarets</a></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

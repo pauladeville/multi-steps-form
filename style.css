@@ -1,0 +1,475 @@
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Regular.ttf);
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Medium.ttf);
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: url(assets/fonts/Ubuntu-Bold.ttf);
+  font-weight: 700;
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu";
+  transition: all 150ms ease-in-out;
+}
+*:focus {
+  outline: none;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+.main-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: hsl(217, 100%, 97%);
+  background-image: url(assets/images/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+@media screen and (min-width: 1000px) {
+  .main-wrapper {
+    margin: 3vh;
+    width: auto;
+    height: 94vh;
+    display: flex;
+    flex-direction: row;
+    background-image: none;
+    background-color: hsl(0, 0%, 100%);
+    padding-bottom: 58px;
+  }
+}
+
+.steps {
+  width: 45vw;
+  margin: auto;
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.steps-bloc {
+  width: 30px;
+  height: 30px;
+}
+.steps-bloc-number {
+  cursor: default;
+  width: 30px;
+  height: 30px;
+  color: hsl(0, 0%, 100%);
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid hsl(0, 0%, 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100px;
+}
+.steps-bloc-number.active {
+  background-color: hsl(206, 94%, 87%);
+  color: hsl(213, 96%, 18%);
+  border-color: hsl(206, 94%, 87%);
+}
+.steps-bloc-text {
+  display: none;
+}
+.steps-bloc:last-child {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+@media screen and (min-width: 1000px) {
+  .steps {
+    background-image: url(assets/images/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 7%;
+    margin: 0;
+    padding: 3%;
+    width: 30%;
+    border-radius: 15px;
+  }
+  .steps-bloc {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+  }
+  .steps-bloc-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    text-transform: uppercase;
+    font-size: 14px;
+  }
+  .steps-bloc-text-number {
+    color: hsl(206, 94%, 87%);
+  }
+  .steps-bloc-text-title {
+    color: hsl(0, 0%, 100%);
+    font-weight: 700;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .interactive-content {
+    display: flex;
+    flex-direction: column;
+    margin: 5% auto;
+    width: 70%;
+    max-width: 500px;
+  }
+}
+
+.form {
+  background-color: hsl(0, 0%, 100%);
+  margin: 30px auto 170px auto;
+  padding: 30px 20px;
+  border-radius: 15px;
+  box-shadow: 0px 12px 50px hsl(229, 24%, 87%);
+  width: 90%;
+  max-width: 500px;
+}
+.form h2 {
+  color: hsl(213, 96%, 18%);
+}
+.form p {
+  color: hsl(231, 11%, 63%);
+  margin: 15px 0 25px 0;
+}
+.form-step {
+  display: none;
+}
+.form-step.active {
+  display: block;
+}
+.form-step-0 .inputs-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 3px 0;
+  font-size: 12px;
+}
+.form-step-0 .inputs-infos label {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.form-step-0 .inputs-infos span {
+  color: hsl(354, 84%, 57%);
+  font-weight: 500;
+  display: none;
+}
+.form-step-0 .inputs-infos span.active {
+  display: inline;
+}
+.form-step-0 input {
+  width: 100%;
+  border: 1px solid hsl(229, 24%, 87%);
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+  font-size: 14px;
+}
+.form-step-0 input:focus {
+  border: 1px solid hsl(243, 100%, 62%);
+}
+.form-step-0 ::-moz-placeholder {
+  color: #40424f;
+  font-size: 14px;
+}
+.form-step-0 ::placeholder {
+  color: #40424f;
+  font-size: 14px;
+}
+.form-step-1 .forfait {
+  cursor: pointer;
+  border: 1px hsl(229, 24%, 87%) solid;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 15px;
+}
+.form-step-1 .forfait.active {
+  border-color: hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+}
+.form-step-1 .forfait-details span {
+  margin-bottom: 4px;
+}
+.form-step-1 .forfait-details span:last-child {
+  margin-bottom: 0;
+}
+.form-step-1 .forfait-details-title {
+  display: block;
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.form-step-1 .forfait-details-price {
+  display: block;
+  color: hsl(231, 11%, 63%);
+  font-size: 14px;
+  display: none;
+}
+.form-step-1 .forfait-details-price.active {
+  display: inline;
+}
+.form-step-1 .forfait-details-offer {
+  color: hsl(213, 96%, 18%);
+  font-size: 12px;
+  display: none;
+}
+.form-step-1 .forfait-details-offer.active {
+  display: block;
+}
+.form-step-1 .toggle {
+  border-radius: 5px;
+  background-color: hsl(217, 100%, 97%);
+  padding: 15px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.form-step-1 .toggle span {
+  cursor: pointer;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+  font-size: 14px;
+}
+.form-step-1 .toggle span.active {
+  color: hsl(213, 96%, 18%);
+}
+.form-step-1 .toggle .bar {
+  cursor: pointer;
+  padding: 3px;
+  width: 40px;
+  height: 20px;
+  border-radius: 500px;
+  background-color: hsl(213, 96%, 18%);
+}
+.form-step-1 .toggle .cursor {
+  width: 14px;
+  height: 14px;
+  border-radius: 500px;
+  background-color: hsl(0, 0%, 100%);
+}
+.form-step-1 .toggle .cursor.right {
+  transform: translateX(20px);
+}
+.form-step-2 .option {
+  cursor: pointer;
+  border: 1px hsl(229, 24%, 87%) solid;
+  padding: 15px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+}
+.form-step-2 .option.active {
+  border-color: hsl(243, 100%, 62%);
+  background-color: hsl(217, 100%, 97%);
+}
+.form-step-2 .option.active img {
+  background-color: hsl(243, 100%, 62%);
+  border-color: hsl(243, 100%, 62%);
+}
+.form-step-2 .option img {
+  border: 1px solid hsl(229, 24%, 87%);
+  background-color: hsl(0, 0%, 100%);
+  padding: 5px 4px;
+  border-radius: 5px;
+}
+.form-step-2 .option-details span {
+  display: block;
+  margin-bottom: 4px;
+}
+.form-step-2 .option-details span:last-child {
+  margin-bottom: 0;
+}
+.form-step-2 .option-details-title {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.form-step-2 .option-details-text {
+  color: hsl(231, 11%, 63%);
+  font-size: 12px;
+}
+.form-step-2 .option-price {
+  color: hsl(243, 100%, 62%);
+  font-size: 14px;
+  margin-left: auto;
+}
+.form-step-3 {
+  color: hsl(231, 11%, 63%);
+  font-size: 14px;
+}
+.form-step-3 .cart,
+.form-step-3 .total {
+  padding: 20px 15px;
+}
+.form-step-3 .cart {
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 5px;
+}
+.form-step-3 .cart .forfait {
+  border-bottom: 1px solid hsl(229, 24%, 87%);
+  padding-bottom: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-step-3 .cart .forfait-change {
+  display: block;
+  margin-top: 3px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.form-step-3 .cart .option {
+  margin-top: 15px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  display: none;
+}
+.form-step-3 .cart .option.active {
+  display: flex;
+}
+.form-step-3 .cart .forfait-title,
+.form-step-3 .cart .forfait-frequence,
+.form-step-3 .cart .forfait-price {
+  font-weight: 500;
+}
+.form-step-3 .cart .forfait-title,
+.form-step-3 .cart .forfait-frequence,
+.form-step-3 .cart .forfait-price,
+.form-step-3 .cart .option-price {
+  color: hsl(213, 96%, 18%);
+}
+.form-step-3 .total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.form-step-3 .total-number {
+  color: hsl(243, 100%, 62%);
+  font-size: 16px;
+  font-weight: 700;
+}
+.form-step-4 {
+  text-align: center;
+  padding: 30px 0;
+}
+.form-step-4 img {
+  margin-bottom: 25px;
+  width: 60px;
+}
+.form-step-4 h3 {
+  color: hsl(213, 96%, 18%);
+  font-size: 25px;
+}
+.form-step-4 p {
+  line-height: 24px;
+}
+.form-step-4 a {
+  color: hsl(231, 11%, 63%);
+  text-decoration: none;
+}
+.form-step-4 a:hover {
+  color: hsl(213, 96%, 18%);
+}
+@media screen and (min-width: 1000px) {
+  .form {
+    box-shadow: none;
+    margin: 5% 5% 0 5%;
+  }
+  .form h2 {
+    font-size: 30px;
+  }
+}
+
+.navigation {
+  position: fixed;
+  bottom: 58px;
+  width: 100%;
+  background-color: hsl(0, 0%, 100%);
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.navigation .prev,
+.navigation .next {
+  opacity: 0;
+  cursor: pointer;
+}
+.navigation .prev.active,
+.navigation .next.active {
+  opacity: 1;
+}
+.navigation .prev {
+  color: hsl(231, 11%, 63%);
+}
+.navigation .prev:hover {
+  color: hsl(213, 96%, 18%);
+}
+.navigation .next {
+  color: hsl(0, 0%, 100%);
+  background-color: hsl(213, 96%, 18%);
+  padding: 12px 17px;
+  border-radius: 5px;
+  justify-self: flex-end;
+}
+@media screen and (min-width: 1000px) {
+  .navigation {
+    position: static;
+    margin: 0 5% 5% 5%;
+    width: auto;
+  }
+}
+
+.attribution {
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  text-align: center;
+  padding: 10px;
+}
+.attribution a {
+  color: hsl(217, 100%, 97%);
+  text-decoration: none;
+  font-weight: 500;
+}
+.attribution a:hover {
+  color: hsl(228, 100%, 84%);
+}/*# sourceMappingURL=style.css.map */
